@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { list } from "../services/swapi.js";
 import Card from "../components/Card.jsx";
 
+// Componente para mostrar una sección de elementos (personajes, vehículos, planetas)
 function Section({ title, category }) {
   const [items, setItems] = useState([]);
   const [err, setErr] = useState("");
@@ -9,7 +10,7 @@ function Section({ title, category }) {
   useEffect(() => {
     (async () => {
       try {
-        const data = await list(category, 1, 10); // límite 10
+        const data = await list(category, 1, 10); // límite 10 por categoría
         setItems(data);
       } catch (e) {
         setErr(String(e.message || e));
@@ -32,6 +33,7 @@ function Section({ title, category }) {
   );
 }
 
+//componente principal de Home
 export default function Home() {
   return (
     <>

@@ -5,6 +5,7 @@ import { FavsProvider } from "./context/FavsContext.jsx";
 import Home from "./pages/Home.jsx";
 import Details from "./pages/Details.jsx";
 
+//Componente principal que define las rutas.
 export default function routes() {
   return (
     <FavsProvider>

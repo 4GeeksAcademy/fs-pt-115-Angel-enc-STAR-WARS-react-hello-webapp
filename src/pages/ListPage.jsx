@@ -8,17 +8,18 @@ const titles = {
   vehicles: "Vehículos",
 };
 
+//Componente principal de la pagina de listado
 export default function ListPage({ type }) {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState("");
+  const [items, setItems] = useState([]);//guardar los items obtenidos
+  const [loading, setLoading] = useState(true);//indacar si está cargando
+  const [err, setErr] = useState("");//guarda posibles errores
 
   useEffect(() => {
-    setLoading(true);
+    setLoading(true);//activa el estado de carga
     fetchList(type, 10)
       .then(setItems)
       .catch((e) => setErr(e.message))
-      .finally(() => setLoading(false));
+      .finally(() => setLoading(false));//desactiva el estado de carga
   }, [type]);
 
   if (loading) return <p>Cargando…</p>;

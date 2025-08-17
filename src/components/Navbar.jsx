@@ -6,15 +6,19 @@ import { useFavs } from "../context/FavsContext.jsx";
 import starwarsLogo from "../assets/img/starwars.png";
 
 export default function Navbar() {
+  //Obtiene favoritos y la función para añadir/eliminar 
   const { favs, toggleFav } = useFavs();
+
+  //Referencia para el dropdown para inicializar Bootstrap
   const btnRef = useRef(null);
 
   useEffect(() => {
     if (btnRef.current) {
+      //inicializa el dropdown de Bootstrap
       const dd = new Dropdown(btnRef.current, {
         autoClose: "outside",
       });
-      return () => dd.dispose();
+      return () => dd.dispose();//limpia el dropdown al desmontar el componente
     }
   }, []);
 

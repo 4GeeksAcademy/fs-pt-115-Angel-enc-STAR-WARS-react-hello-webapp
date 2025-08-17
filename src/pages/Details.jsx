@@ -34,8 +34,8 @@ export default function Details({ type: typeProp }) {
   const props = data.properties || {};
   const name = props.name || data.uid;
 
-  // Utilidad para prettificar claves: birth_year -> Birth year
-  const pretty = (k) =>
+  // Utilidad para formatear claves y hacerlas mas legibles: birth_year -> birth year
+  const formatKey = (k) =>
     k.replaceAll("_", " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
   return (
@@ -67,7 +67,7 @@ export default function Details({ type: typeProp }) {
           {Object.entries(props).map(([k, v]) => (
             <div className="col-12 col-sm-6 mb-2" key={k}>
               <strong className="d-block text-uppercase small">
-                {pretty(k)}
+                {formatKey(k)}
               </strong>
               <span className="text-break">{String(v)}</span>
             </div>

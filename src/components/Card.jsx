@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getImageUrl, placeholder } from "../utilidades/images.js";
+import { getImageUrl, placeholder } from "../utilidades/images.js";//para obtener la URL de la imagen y el placeholder
 import { useFavs } from "../context/FavsContext.jsx";
 
 export default function Card(props) {
+  //determina el tipo, id y nombre según las props
   const type = props.type || props.category;
   const id = props.id || props.item?.uid;
   const name = props.name || props.item?.name;
 
+  //extrar la funcion toggleFav para añadir o eliminar favoritos
   const { toggleFav } = useFavs();
 
   return (
